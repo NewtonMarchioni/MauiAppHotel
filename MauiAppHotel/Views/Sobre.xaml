@@ -13,7 +13,7 @@
             Text="Sobre o App"
             FontFamily="CaveatSemiBold"
             TextColor="{StaticResource Primary}"
-            FontSize="60"
+            FontSize="44"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 

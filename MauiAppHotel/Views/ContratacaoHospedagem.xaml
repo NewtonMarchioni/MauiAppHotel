@@ -12,56 +12,66 @@
         <Label 
             Text="Cálculo da Diária"
             FontFamily="CaveatSemiBold"
-            FontSize="60"
-            TextColor="{StaticResource Primary}"/>
+            TextColor="{StaticResource Primary}"
+            FontSize="44"
+            HorizontalOptions="Center"/>
 
         <Frame Padding="10">
             <VerticalStackLayout>
-                <Grid RowDefinitions="Auto, Auto"
-                      ColumnDefinitions="*, *, 2*">
+                <Frame>
+                    <Grid RowDefinitions="Auto, Auto"
+                          ColumnDefinitions="*, *, 2*">
 
-                    <Label Grid.Row="0" Grid.Column="0"
-                           Text="Adultos:" />
+                        <Label Grid.Row="0" Grid.Column="0"
+                               Text="Adultos:" FontAttributes="Bold" />
 
-                    <Label Grid.Row="0" Grid.Column="1"
-                           TextColor="{StaticResource Primary}"
-                           Text="{Binding Value}"
-                           BindingContext="{x:Reference stp_adultos}" />
+                        <Label Grid.Row="0" Grid.Column="1"
+                               TextColor="{StaticResource Primary}"
+                               Text="{Binding Value}"
+                               BindingContext="{x:Reference stp_adultos}" />
 
-                    <Stepper Grid.Row="0" Grid.Column="2"
-                             x:Name="stp_adultos"
-                             Minimum="0"
-                             Maximum="10"
-                             Increment="1" />
-                    
-                    <Label Grid.Row="1" Grid.Column="0"
-                           Text="Crianças:" />
+                        <Stepper Grid.Row="0" Grid.Column="2"
+                                 x:Name="stp_adultos"
+                                 Minimum="0"
+                                 Maximum="10"
+                                 Increment="1" />
 
-                    <Label Grid.Row="1" Grid.Column="1"
-                           TextColor="{StaticResource Primary}"
-                           Text="{Binding Value}"
-                           BindingContext="{x:Reference stp_criancas}" />
+                        <Label Grid.Row="1" Grid.Column="0"
+                               Text="Crianças:" FontAttributes="Bold"/>
 
-                    <Stepper Grid.Row="1" Grid.Column="2"
-                             x:Name="stp_criancas"
-                             Minimum="0"
-                             Maximum="10"
-                             Increment="1" />
-                </Grid>
+                        <Label Grid.Row="1" Grid.Column="1"
+                               TextColor="{StaticResource Primary}"
+                               Text="{Binding Value}"
+                               BindingContext="{x:Reference stp_criancas}" />
 
-                <Label Text="Escolha sua Suíte" />
+                        <Stepper Grid.Row="1" Grid.Column="2"
+                                 x:Name="stp_criancas"
+                                 Minimum="0"
+                                 Maximum="10"
+                                 Increment="1" />
+                    </Grid>
+                </Frame>
 
-                <Picker x:Name="pck_quarto"
-                        Title="Selecione sua Acomodação"
-                        ItemDisplayBinding="{Binding Descricao}" />
+                <Frame>
+                    <VerticalStackLayout>
+                        <Label Text="Escolha sua Suíte" FontAttributes="Bold"/>
 
+                        <Label Text="Selecione sua Acomodação"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Gray900}"
+                               Margin="0,5,0,2" />
+
+                        <Picker x:Name="pck_quarto"
+                                ItemDisplayBinding="{Binding DescricaoCompleta}" />
+                    </VerticalStackLayout>
+                </Frame>
 
                 <Frame Padding="10"
                        Margin="10">
                     <VerticalStackLayout>
-                        <Label Text="Período da Estadia" />
+                        <Label Text="Período da Estadia" FontAttributes="Bold"/>
                         <HorizontalStackLayout>
-                            <Label Text="Check-in:" />
+                            <Label Text="Check-in:" FontAttributes="Bold"/>
                             <DatePicker x:Name="dtpck_checkin"
                                         TextColor="{StaticResource Primary}"
                                         Format="dd/MM/yyyy"
@@ -69,7 +79,7 @@
                         </HorizontalStackLayout>
 
                         <HorizontalStackLayout>
-                            <Label Text="Check-out:" />
+                            <Label Text="Check-out:" FontAttributes="Bold"/>
                             <DatePicker x:Name="dtpck_checkout"
                                    TextColor="Crimson"
                                         Format="dd/MM/yyyy" />
@@ -77,12 +87,13 @@
                     </VerticalStackLayout>
                 </Frame>
 
-                <Button Text="Avançar" 
+                <Button Text="Avançar"
                         Clicked="Button_Clicked" 
                         HorizontalOptions="Center" />
 
                 <Label Text="Sobre o app"
                        TextColor="{StaticResource Primary}"
+                       
                        TextDecorations="None"
                        HorizontalOptions="End"
                        Margin="0,8,0,0">    
